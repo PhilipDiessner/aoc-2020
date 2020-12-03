@@ -48,7 +48,7 @@ pub fn part2(filename: &str) {
         // Consumes the iterator, returns an (Optional) String
         let mut res = 0;
         for line in lines {
-            let inp = line.unwrap()
+            let inp = line.unwrap();
             let caps = parse_line(inp.as_str());
             let (pol, pw) = ((&caps[1], &caps[2], &caps[3]), &caps[4]);
             res += valid_pass_two(pol, pw) as u32;
