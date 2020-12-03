@@ -2,11 +2,12 @@
 mod util;
 mod day1;
 mod day2;
+mod day3;
 mod dayn;
 
 fn main(){
 
-    let filename = "./inputs/day2.txt";
-    day2::part1(filename);
-    day2::part2(filename);
+    let filename = "./inputs/day3.txt";
+    day3::part1(filename);
+    day3::part2(filename);
 }
