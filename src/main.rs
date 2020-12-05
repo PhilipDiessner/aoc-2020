@@ -5,10 +5,11 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main(){
 
-    let filename = "./inputs/day4.txt";
-    day4::part1(filename);
-    day4::part2(filename);
+    let filename = "./inputs/day5.txt";
+    day5::part1(filename);
+    day5::part2(filename);
 }

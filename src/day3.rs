@@ -11,7 +11,7 @@ fn run_part1(input: &String, left: usize, down: usize)->u32{
         _ => map.into_iter().enumerate().filter(|&(i, _ )| i % down == 0 ).map(|(_, v)| v).collect()
     };
     for line in to_iter {
-        if line[pos] == "#" { res+=1; }
+        if line[pos] == '#'{ res+=1; }
         pos = (pos+left) % line.len();
     }
     res

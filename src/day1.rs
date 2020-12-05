@@ -4,7 +4,6 @@ use crate::util;
 pub fn part1(filename: &str) {
     let mut done: HashMap<u32, u32> = HashMap::new();
     let lines = util::read_lines(filename).unwrap();
-        // Consumes the iterator, returns an (Optional) String
         for line in lines {
             let ip = line.unwrap();
             let trim = ip.trim().parse::<u32>().unwrap();
@@ -22,7 +21,6 @@ pub fn part2(filename: &str) {
     let mut single: HashMap<u32, u32> = HashMap::new();
     let mut double: HashMap<u32, (u32, u32)> = HashMap::new();
     let lines = util::read_lines(filename).unwrap();
-        // Consumes the iterator, returns an (Optional) String
     for line in lines {
         let ip = line.unwrap();
         let trim = ip.trim().parse::<u32>().unwrap();

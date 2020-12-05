@@ -14,9 +14,9 @@ pub fn filename_to_string<P>(filename: P) -> io::Result<String>
 }
 
 
-pub fn read_map(s: &str) -> Vec<Vec<&str>> {
+pub fn read_map(s: &str) -> Vec<Vec<char>> {
     s.lines().map(|line| {
-        line.split("").filter(|s| !s.is_empty()).collect()
-        //line.chars().collect()
+        //line.split("").filter(|s| !s.is_empty()).collect()
+        line.chars().collect()
     }).collect()
 }
