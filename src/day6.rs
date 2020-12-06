@@ -2,32 +2,28 @@ use crate::util;
 use std::collections::HashSet;
 use reduce::Reduce;
 
+fn sub_part1(line:&str) -> usize {
+    line.chars().filter(|&a| a !='\n'  ).collect::<HashSet<char>>().len()
+}
+
+fn sub_part2(line: &str) -> usize {
+    line.split_terminator("\n")
+            .map(|member| member.chars().collect::<HashSet<char>>())
+            .reduce(|a, b| a.intersection(&b).copied()
+                .collect::<HashSet<char>>()).unwrap().len()
+}
+
+
 pub fn part1(filename: &str) {
-    let mut counts= 0;
     let str = util::filename_to_string(filename).unwrap();
-    let lines = str.split("\n\n");
-    for line in lines {
-        let mut group = HashSet::new();
-        for char in line.chars() {
-                group.insert(char);
-            }
-        group.remove(&'\n');
-        counts += group.len();
-    }
+    let counts = str.split("\n\n").map(|line| sub_part1(line))
+        .reduce(|a,b|a+b).unwrap();
     println!("{}", counts);
 }
 
 pub fn part2(filename: &str) {
-    let mut counts= 0;
     let str = util::filename_to_string(filename).unwrap();
-    let lines = str.split("\n\n");
-    for line in lines {
-        //let members :Vec<&str>=  line.split_terminator("\n").collect();
-        let group = line.split_terminator("\n")
-            .map(|member| member.chars().collect::<HashSet<char>>())
-            .reduce(|a, b| a.intersection(&b).copied()
-                .collect::<HashSet<char>>()).unwrap();
-        counts += group.len();
-    }
+    let counts = str.split("\n\n").map(|line| sub_part2(line))
+        .reduce(|a,b|a+b).unwrap();
     println!("{}", counts);
 }
