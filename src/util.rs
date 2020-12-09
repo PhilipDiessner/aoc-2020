@@ -13,7 +13,6 @@ pub fn filename_to_string<P>(filename: P) -> io::Result<String>
     fs::read_to_string(filename)
 }
 
-
 pub fn read_map(s: &str) -> Vec<Vec<char>> {
     s.lines().map(|line| {
         //line.split("").filter(|s| !s.is_empty()).collect()
